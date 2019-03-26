@@ -47,4 +47,4 @@ USER www-data
 RUN bundle exec rake assets:precompile
 
 # Layer 11. Указываем команду по умолчанию для запуска будущего контейнера. По скольку в `Layer 9` мы переопределили пользователя, то puma сервер будет запущен от имени www-data пользователя.
-CMD bundle exec puma -C config/puma.rb
+CMD puma -C config/puma.rb
