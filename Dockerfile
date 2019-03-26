@@ -6,7 +6,7 @@ USER root
 
 # Layer 2. Обновляем и устанавливаем нужное для Web сервера ПО
 RUN apt-get update -qq && apt-get install -y \
-   build-essential libpq-dev libxml2-dev libxslt1-dev nodejs imagemagick apt-transport-https curl nano vim
+   build-essential libpq-dev libxml2-dev libxslt1-dev nodejs imagemagick apt-transport-https curl nano vim wget
 
 # Layer 3. Сохраняем в переменную окружения путь внутри Docker образа к нашему приложению
 ENV APP_HOME /home/www/spreedemo
