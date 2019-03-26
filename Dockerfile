@@ -20,6 +20,16 @@ COPY Gemfile Gemfile.lock ./
 # Layer 6. Вызываем команду по установке gem-зависимостей.
 
 # При отсутствии изменений на предыдущих шагах. А именно, если содержание файлов Gemfile и Gemfile.lock не изменились, то данная команда не будет выполнена, поскольку текущий слой будет браться из кэша.
+RUN bundle check || gem install nokogiri -v '1.8.4' --source 'https://rubygems.org/'
+RUN bundle check || gem install nio4r -v '2.3.1' --source 'https://rubygems.org/'
+RUN bundle check || gem install websocket-driver -v '0.7.0' --source 'https://rubygems.org/'
+RUN bundle check || gem install bcrypt -v '3.1.12' --source 'https://rubygems.org/'
+RUN bundle check || gem install bindex -v '0.5.0' --source 'https://rubygems.org/'
+RUN bundle check || gem install ffi -v '1.9.25' --source 'https://rubygems.org/'
+RUN bundle check || gem install byebug -v '10.0.2' --source 'https://rubygems.org/'
+RUN bundle check || gem install hiredis -v '0.6.1' --source 'https://rubygems.org/'
+RUN bundle check || gem install pg -v '1.1.3' --source 'https://rubygems.org/'
+RUN bundle check || gem install puma -v '3.12.0' --source 'https://rubygems.org/'
 RUN bundle check || bundle install
 
 # Layer 7. Копируем все содержимое директории приложения в root-директорию WORKDIR
